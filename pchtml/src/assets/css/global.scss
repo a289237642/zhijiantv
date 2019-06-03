@@ -1,0 +1,394 @@
+html,body{
+  height: 100%;
+}
+
+//全局颜色
+:root {
+  --base: #ffc639; //主题色
+  --icon: #cccccc; //icon色
+  --nav: #999999; //导航字体
+  --font: #808080;  //全局字体
+  --normal: #333333; //正常黑
+  --border-bottom:#eee; //下划线颜色
+  --zhijianswitch:#fff;
+}
+
+//分页样式
+.zhijian-pagination {
+  margin: 10px;
+  height: 40px;
+  text-align: right;
+  .ivu-page {
+    height: 40px;
+  }
+  .ivu-page-item:hover {
+    border-color: var(--base);
+    a {
+      color: var(--base);
+    }
+  }
+  .ivu-page-item-active {
+    background-color: var(--base);
+    border-color: var(--base);
+    a{
+      color: #fff;
+    }
+    &:hover {
+      a {
+        color: #fff;
+      }
+    }
+  }
+  .ivu-page-next:hover,
+  .ivu-page-prev:hover {
+    border-color: var(--base);
+    a {
+      color: var(--base);
+    }
+  }
+  .ivu-page-item-jump-next,
+  .ivu-page-item-jump-prev {
+    &:hover {
+      a {
+        color: var(--base);
+      }
+    }
+  }
+  .ivu-page-options-elevator input {
+    &:hover {
+      border-color: var(--base);
+    }
+    &:focus {
+      border-color: var(--base);
+      box-shadow: none;
+    }
+  }
+}
+//表格样式
+.zhijian-table.ivu-table-wrapper {
+  margin: 0 auto;
+  border: none;
+  box-shadow: 0px 0px 1px 0px #ece6e6;
+  transition: all .2s linear;
+  &:hover{
+    box-shadow: 0px 2px 10px 2px #ece6e6;
+  }
+  .ivu-table {
+    &:before,
+    &:after {
+      background-color: transparent;
+    }
+  }
+  .ivu-table-tbody {
+    color: var(--font);
+  }
+  tr:nth-child(2n) td{
+    background-color: #fff;
+  }
+  tr:nth-child(2n+1) td{
+    background-color: #f8f8f9;
+  }
+  th {
+    background-color: #fff;
+  }
+  th,
+  td {
+    border: none;
+    font-size: 14px;
+  }
+  .ivu-table-body tr.ivu-table-row-hover td,
+  .ivu-table-stripe .ivu-table-fixed-body tr.ivu-table-row-hover td,
+  tr.ivu-table-row-hover td {
+    background-color: #ebf7ff;
+  }
+  //表格内的切换按钮
+  .ivu-switch {
+    width: 44px;
+  }
+  .ivu-switch:focus {
+    box-shadow: none;
+  }
+  .ivu-switch-checked {
+    border-color: var(--base);
+    background-color: var(--base);
+    &:after {
+      background: var(--zhijianswitch);
+    }
+  }
+  //表格内iconfont
+  .iconfont {
+    cursor: pointer;
+    font-size: 24px;
+    vertical-align: middle;
+    color: var(--icon);
+    transition: color .3s;
+    &.icon-edit {
+      margin: 0 20px;
+      &:hover {
+        color: var(--font);
+      }
+    }
+    &.icon-delete {
+      font-size: 20px;
+      &:hover {
+        color: var(--font);
+      }
+    }
+  }
+}
+
+//-------------------------------模态框
+.ivu-modal-header {
+  display: none;
+}
+.ivu-modal-footer{
+  display: none;
+}
+// .ivu-modal-close{
+//   display: none;
+// }
+.ivu-modal-body{
+  padding: 30px;
+}
+.ivu-modal-content{
+  border-radius: 0;
+}
+.zhijian-modal-title{
+  text-align: center;
+  color: var(--base);
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+//js模态框
+.ivu-modal-confirm-footer{
+  text-align: center;
+  margin-top: 30px;
+  button{
+    cursor: pointer;
+    width: 100px;
+    padding: 8px 16px;
+    background-color: var(--base);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    opacity: .8;
+    transition: all .2s linear;
+    border: none;
+    border-radius: 0;
+    &:hover{
+      background-color: var(--base);
+      opacity: 1;
+    }
+    &:active{
+      background-color: var(--base);
+      border-color: var(--base);
+    }
+    &:focus{
+      box-shadow: none;
+    }
+  }
+}
+.ivu-modal-confirm-body{
+  text-align: center;
+  padding: 0;
+  font-size: 14px;
+  margin-top: 0;
+  color: var(--normal);
+}
+.ivu-modal-confirm-head{
+  display: none;
+}
+.ivu-modal-confirm-body-icon{
+  display: none;
+}
+//-------------------------------按钮
+//新增按钮样式
+.zhijian-new-btn {
+  height: 42px;
+  padding: 10px 26px;
+  font-size: 16px;
+  background: var(--zhijianbtn);
+  background-size: 200% 100%;
+  border-color: transparent;
+  transition: background-position .5s;
+  -webkit-transition: background-position .5s;
+  -moz-transition: background-position .5s;
+  -o-transition: background-position .5s;
+  &:focus {
+    box-shadow: none;
+  }
+  &:hover {
+    border-color: transparent;
+    background-position: -100% 0;
+  }
+}
+.zhijian-btn-box{
+  display: flex;
+  justify-content: center
+}
+.zhijian-btn-confirm{
+  cursor: pointer;
+  width: 100px;
+  padding: 8px 16px;
+  background-color: var(--base);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  opacity: .8;
+  transition: all .2s linear;
+  &:hover{
+    opacity: 1;
+  }
+}
+.zhijian-btn-cancel{
+  cursor: pointer;
+  width: 100px;
+  padding: 8px 16px;
+  background-color: #ccc;
+  color: var(--normal);
+  text-align: center;
+  font-size: 14px;
+  opacity: .8;
+  transition: all .2s linear;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+//-----------------------------输入框内label
+.zhijian-label-input{
+  position: relative;
+  >label{
+    position: absolute;
+    z-index: 9;
+    line-height: 32px;
+    padding: 4px 7px;
+    color: var(--font);
+  }
+  .ivu-input{
+    padding: 10px 4px 10px 60px;
+    border-radius: 0;
+    height: auto;
+  }
+}
+
+//----------------------------表单样式
+.zhijian-form {
+  .ivu-form-item-label {
+    padding-right: 10px;
+    height: 42px;
+    line-height: 22px;
+    font-size: 14px;
+    color: var(--font);
+  }
+  .ivu-form-item-content {
+    line-height: 42px;
+  }
+  .ivu-input-wrapper {
+    height: 42px;
+  }
+  .ivu-input {
+    padding: 4px 14px;
+    border-radius: 0;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    color: var(--font);
+    &:focus,
+    &:hover {
+      border-color: #e4e4e4;
+      box-shadow: none;
+    }
+  }
+  .ivu-form-item-error-tip {
+    color: #ed4958;
+  }
+  .ivu-form-item-error .ivu-input,
+  .ivu-form-item-error .ivu-input:hover,
+  .ivu-form-item-required .ivu-form-item-label:before {
+    border-color: #ed4958;
+  }
+  .fade-appear,
+  .fade-enter-active,
+  .fade-enter-to,
+  .fade-leave,
+  .fade-leave-active {
+    animation: none;
+    opacity: 1;
+  }
+
+  .ivu-select-selection {
+    height: 42px;
+    line-height: 42px;
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--font);
+    &>div {
+      outline: none;
+    }
+  }
+  .ivu-select-selected-value {
+    height: 42px;
+    line-height: 42px;
+    padding-left: 14px;
+    font-size: 14px;
+    color: var(--font);
+    outline: none;
+  }
+  .ivu-select-arrow {
+    color: var(--icon);
+    outline: none;
+  }
+  .ivu-select-item {
+    font-size: 14px!important;
+    color: var(--font);
+  }
+  .ivu-select-selection-focused,
+  .ivu-select-selection,
+  .ivu-select-selection:hover {
+    border-color: #e4e4e4;
+    box-shadow: none;
+  }
+  .ivu-select-item-selected {
+    color: #fff;
+  }
+  .ivu-select-single .ivu-select-selection .ivu-select-placeholder,
+  .ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    padding-left: 14px;
+  }
+  .ivu-form-item-error .ivu-select-selection {
+    border-color: #ed4958;
+    &:hover {
+      border-color: #ed4958;
+    }
+  }
+}
+
+// ---------------------------iview checkbox
+.ivu-checkbox-checked .ivu-checkbox-inner{
+  border-color: var(--base);
+  background-color: #fff;
+}
+.ivu-checkbox-checked:hover .ivu-checkbox-inner{
+  border-color: var(--base);
+}
+.ivu-checkbox-checked .ivu-checkbox-inner:after{
+  content: '';
+  display: table;
+  width: 4px;
+  height: 8px;
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  border: 2px solid var(--base);
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg) scale(1);
+  transition: all .2s ease-in-out;
+}
+.ivu-checkbox-focus{
+  box-shadow: 0 0 0 2px rgba(237,73,88,.1);
+}
