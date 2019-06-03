@@ -1,0 +1,8 @@
+celerybeat-schedule
+/.idea/
+/logs/
+.DS_Store
+*.pyc
+*.log
+*.out
+/app/logs
