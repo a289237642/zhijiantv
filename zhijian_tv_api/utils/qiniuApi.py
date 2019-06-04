@@ -19,7 +19,7 @@ def file_oss(key, localfile):
     token = q.upload_token(bucket_name, key, 3600)
     ret, info = put_file(token, key, localfile)
     if info.status_code == 200:
-        return {"errmsg": 0, "url": f"http://prjkmnaf0.bkt.clouddn.com/{key}"}
+        return {"errmsg": 0, "url": f"https://oss.max-tv.net.cn/{key}"}
     else:
         return {"errmsg": -1}
 

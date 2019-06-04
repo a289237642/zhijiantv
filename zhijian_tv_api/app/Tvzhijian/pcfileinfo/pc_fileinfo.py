@@ -135,7 +135,7 @@ def GetFileInfo():
             return jsonify(errno=-1, errmsg="参数不完整")
         headers = {'content-type': 'application/json',
                    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
-        urls = f'http://prjkmnaf0.bkt.clouddn.com/{key}?avinfo'
+        urls = f'https://oss.max-tv.net.cn/{key}?avinfo'
         infos = json.loads(str(requests.get(urls, data={}, headers=headers).content, 'utf-8'))
         play_times = re.sub(r'(^\d+:|\..*)','',str(datetime.timedelta(seconds=float(infos['format']['duration']))))
         if play_times:

@@ -27,14 +27,7 @@ def VideoQuery(result):
 def TypeList():
     try:
         res = request.get_json()
-        page = int(res.get('page', 1))
-        pagesize = int(res.get('pagesize', 10))
-        try:
-            page = int(page)
-            pagesize = int(pagesize)
-        except Exception as e:
-            page, pagesize = 1, 10
-        result = VideoType.query.filter(VideoType.status == 1).limit(pagesize).offset((page - 1) * pagesize)
+        result = VideoType.query.filter(VideoType.status == 1).all()
         sumNum = VideoType.query.filter(VideoType.status == 1).count()
         info_list = [{'id': 0, 'title': '全部', 'url': '0000'}]
         if result:
@@ -91,7 +84,11 @@ def TypeDelete():
         if not all([id]):
             return jsonify(errno=-1, errmsg="参数不完整")
         result = VideoType.query.filter(VideoType.status == 1, VideoType.id == id).first()
-        db.session.delete(result)
+        video = VideoInfo.query.filter(VideoInfo.status == 1, VideoInfo.vtype == id).all()
+        if video:
+            return jsonify(errno=-1, errmsg='该分类下有视频，无法删除')
+        result.status = 0
+        db.session.add(result)
         db.session.commit()
         return jsonify(errno=0, errmsg='删除成功')
     except Exception as e:
@@ -314,8 +311,10 @@ def IsShowUpdate():
             result.is_show = 0
         if is_show == 0:
             result.is_show = 1
+
         db.session.add(result)
         db.session.commit()
-        return jsonify(errno=0, errmsg='修改成功')
+        is_show = result.is_show
+        return jsonify(errno=0, errmsg='修改成功', is_show=is_show)
     except Exception as e:
         return jsonify(errno=-1, errmsg='网络异常')
