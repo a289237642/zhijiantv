@@ -15,8 +15,8 @@
     "vue-router": "^3.0.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.7.0",
-    "@vue/cli-service": "^3.7.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "compression-webpack-plugin": "^2.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
